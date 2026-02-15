@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background: #0b1e3d;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #1a3a6b 0%, #4a8ecf 40%, #87ceeb 70%, #c4e4f7 100%);
+  overflow: hidden;
+}
+
+/* Cloud container */
+.hero__clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Base cloud styles */
+.cloud {
+  position: absolute;
+  will-change: transform;
+}
+
+.cloud svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Layer 1 — farthest back, large, faint */
+.cloud--layer-1 {
+  width: clamp(300px, 40vw, 600px);
+  color: rgba(255, 255, 255, 0.25);
+  top: 8%;
+  left: -5%;
+}
+
+.cloud--layer-1.cloud--alt {
+  top: 15%;
+  left: auto;
+  right: -8%;
+}
+
+/* Layer 2 — mid-depth */
+.cloud--layer-2 {
+  width: clamp(220px, 30vw, 450px);
+  color: rgba(255, 255, 255, 0.5);
+  top: 30%;
+  left: 10%;
+}
+
+.cloud--layer-2.cloud--alt {
+  top: 45%;
+  left: auto;
+  right: 5%;
+}
+
+/* Layer 3 — closest, smaller, most opaque */
+.cloud--layer-3 {
+  width: clamp(160px, 22vw, 340px);
+  color: rgba(255, 255, 255, 0.8);
+  top: 55%;
+  left: 25%;
+}
+
+.cloud--layer-3.cloud--alt {
+  top: 65%;
+  left: auto;
+  right: 15%;
+}
+
+/* Hero content */
+.hero__content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5em;
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  opacity: 0.85;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Below-the-fold content */
+.content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #c4e4f7 0%, #0b1e3d 40%);
+}
+
+.content p {
+  max-width: 600px;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  text-align: center;
+  opacity: 0.8;
+}

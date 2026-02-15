@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Cloud Animation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="hero">
+    <div class="hero__clouds">
+      <div class="cloud cloud--layer-1">
+        <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="160" cy="70" rx="120" ry="40" fill="currentColor"/>
+          <ellipse cx="100" cy="55" rx="80" ry="45" fill="currentColor"/>
+          <ellipse cx="200" cy="50" rx="70" ry="40" fill="currentColor"/>
+          <ellipse cx="140" cy="45" rx="60" ry="35" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="cloud cloud--layer-1 cloud--alt">
+        <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="150" cy="65" rx="110" ry="38" fill="currentColor"/>
+          <ellipse cx="90" cy="50" rx="75" ry="42" fill="currentColor"/>
+          <ellipse cx="210" cy="55" rx="65" ry="35" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="cloud cloud--layer-2">
+        <svg viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="140" cy="60" rx="100" ry="35" fill="currentColor"/>
+          <ellipse cx="90" cy="45" rx="65" ry="38" fill="currentColor"/>
+          <ellipse cx="190" cy="48" rx="60" ry="32" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="cloud cloud--layer-2 cloud--alt">
+        <svg viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="130" cy="55" rx="95" ry="33" fill="currentColor"/>
+          <ellipse cx="200" cy="45" rx="60" ry="36" fill="currentColor"/>
+          <ellipse cx="80" cy="48" rx="55" ry="30" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="cloud cloud--layer-3">
+        <svg viewBox="0 0 250 90" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="125" cy="55" rx="90" ry="30" fill="currentColor"/>
+          <ellipse cx="80" cy="42" rx="55" ry="32" fill="currentColor"/>
+          <ellipse cx="170" cy="44" rx="50" ry="28" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="cloud cloud--layer-3 cloud--alt">
+        <svg viewBox="0 0 250 90" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="120" cy="50" rx="85" ry="28" fill="currentColor"/>
+          <ellipse cx="175" cy="42" rx="50" ry="30" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">Above the Clouds</h1>
+      <p class="hero__subtitle">Scroll down to see the parallax effect</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <p>Keep scrolling to watch the clouds drift at different speeds, creating a sense of depth and dimension.</p>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
