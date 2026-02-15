@@ -9,118 +9,151 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
-  background: #0b1e3d;
+  background: #060d1a;
   color: #fff;
 }
 
-/* Hero Section */
+/* ==============================
+   Hero — Firewatch-style parallax
+   ============================== */
 .hero {
   position: relative;
   height: 100vh;
   min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #1a3a6b 0%, #4a8ecf 40%, #87ceeb 70%, #c4e4f7 100%);
   overflow: hidden;
 }
 
-/* Cloud container */
-.hero__clouds {
+/* Every layer is absolutely positioned and fills the hero */
+.hero__layer {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-}
-
-/* Base cloud styles */
-.cloud {
-  position: absolute;
   will-change: transform;
 }
 
-.cloud svg {
-  display: block;
+/* Layer 0: sky gradient background */
+.hero__layer--0 {
+  background: linear-gradient(
+    180deg,
+    #020810 0%,
+    #0a1628 25%,
+    #112a4a 50%,
+    #1a3d6e 75%,
+    #1f4f8f 100%
+  );
+}
+
+/* Stars container */
+.stars {
+  position: absolute;
+  inset: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* SVG mountains fill the bottom portion of each layer */
+.hero__mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 50%;
 }
 
-/* Layer 1 — farthest back, large, faint */
-.cloud--layer-1 {
-  width: clamp(300px, 40vw, 600px);
-  color: rgba(255, 255, 255, 0.25);
-  top: 8%;
-  left: -5%;
+/* Layer-specific mountain heights — farther layers are taller / higher */
+.hero__layer--1 .hero__mountains {
+  height: 55%;
 }
 
-.cloud--layer-1.cloud--alt {
-  top: 15%;
-  left: auto;
-  right: -8%;
+.hero__layer--2 .hero__mountains {
+  height: 50%;
 }
 
-/* Layer 2 — mid-depth */
-.cloud--layer-2 {
-  width: clamp(220px, 30vw, 450px);
-  color: rgba(255, 255, 255, 0.5);
-  top: 30%;
-  left: 10%;
+.hero__layer--3 .hero__mountains {
+  height: 45%;
 }
 
-.cloud--layer-2.cloud--alt {
-  top: 45%;
-  left: auto;
-  right: 5%;
+.hero__layer--5 .hero__mountains {
+  height: 40%;
 }
 
-/* Layer 3 — closest, smaller, most opaque */
-.cloud--layer-3 {
-  width: clamp(160px, 22vw, 340px);
-  color: rgba(255, 255, 255, 0.8);
-  top: 55%;
-  left: 25%;
+.hero__layer--6 .hero__mountains {
+  height: 35%;
 }
 
-.cloud--layer-3.cloud--alt {
-  top: 65%;
-  left: auto;
-  right: 15%;
+/* Hero content — centered in the viewport */
+.hero__layer--content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
 }
 
-/* Hero content */
 .hero__content {
-  position: relative;
-  z-index: 10;
   text-align: center;
+  pointer-events: auto;
 }
 
 .hero__title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 700;
-  letter-spacing: 0.02em;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  margin-bottom: 0.5em;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: #fff;
+  text-shadow: 0 0 40px rgba(30, 100, 200, 0.3);
+  margin-bottom: 0.3em;
 }
 
 .hero__subtitle {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  opacity: 0.85;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+  font-size: clamp(0.95rem, 2vw, 1.3rem);
+  font-weight: 300;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
 }
 
-/* Below-the-fold content */
+/* ==============================
+   Below-the-fold content
+   ============================== */
 .content {
+  position: relative;
+  z-index: 10;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: linear-gradient(180deg, #c4e4f7 0%, #0b1e3d 40%);
+  background: #060d1a;
 }
 
-.content p {
+.content__inner {
   max-width: 600px;
-  font-size: 1.25rem;
-  line-height: 1.8;
   text-align: center;
-  opacity: 0.8;
+}
+
+.content__inner h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content__inner p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.7;
+}
+
+/* ==============================
+   Responsive — disable parallax on small screens
+   ============================== */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero__layer {
+    will-change: auto;
+  }
 }

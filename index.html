@@ -3,63 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parallax Cloud Animation</title>
+  <title>Synax — Parallax Hero</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <section class="hero">
-    <div class="hero__clouds">
-      <div class="cloud cloud--layer-1">
-        <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="160" cy="70" rx="120" ry="40" fill="currentColor"/>
-          <ellipse cx="100" cy="55" rx="80" ry="45" fill="currentColor"/>
-          <ellipse cx="200" cy="50" rx="70" ry="40" fill="currentColor"/>
-          <ellipse cx="140" cy="45" rx="60" ry="35" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="cloud cloud--layer-1 cloud--alt">
-        <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="150" cy="65" rx="110" ry="38" fill="currentColor"/>
-          <ellipse cx="90" cy="50" rx="75" ry="42" fill="currentColor"/>
-          <ellipse cx="210" cy="55" rx="65" ry="35" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="cloud cloud--layer-2">
-        <svg viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="140" cy="60" rx="100" ry="35" fill="currentColor"/>
-          <ellipse cx="90" cy="45" rx="65" ry="38" fill="currentColor"/>
-          <ellipse cx="190" cy="48" rx="60" ry="32" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="cloud cloud--layer-2 cloud--alt">
-        <svg viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="130" cy="55" rx="95" ry="33" fill="currentColor"/>
-          <ellipse cx="200" cy="45" rx="60" ry="36" fill="currentColor"/>
-          <ellipse cx="80" cy="48" rx="55" ry="30" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="cloud cloud--layer-3">
-        <svg viewBox="0 0 250 90" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="125" cy="55" rx="90" ry="30" fill="currentColor"/>
-          <ellipse cx="80" cy="42" rx="55" ry="32" fill="currentColor"/>
-          <ellipse cx="170" cy="44" rx="50" ry="28" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="cloud cloud--layer-3 cloud--alt">
-        <svg viewBox="0 0 250 90" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="120" cy="50" rx="85" ry="28" fill="currentColor"/>
-          <ellipse cx="175" cy="42" rx="50" ry="30" fill="currentColor"/>
-        </svg>
+
+  <section class="hero" id="hero">
+    <!-- Layer 0: sky gradient + stars (furthest back) -->
+    <div class="hero__layer hero__layer--0" data-speed="0.05">
+      <div class="stars" id="stars-canvas"></div>
+    </div>
+
+    <!-- Layer 1: far mountains -->
+    <div class="hero__layer hero__layer--1" data-speed="0.1">
+      <svg class="hero__mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 400 L0 280 Q120 180 240 240 Q360 140 480 200 Q600 100 720 180 Q840 80 960 160 Q1080 60 1200 140 Q1320 100 1440 180 L1440 400 Z" fill="#0d1b2a"/>
+      </svg>
+    </div>
+
+    <!-- Layer 2: mid-far mountains -->
+    <div class="hero__layer hero__layer--2" data-speed="0.2">
+      <svg class="hero__mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 400 L0 310 Q100 230 200 270 Q320 190 440 250 Q560 160 680 230 Q800 140 920 210 Q1060 130 1180 200 Q1300 160 1440 220 L1440 400 Z" fill="#112240"/>
+      </svg>
+    </div>
+
+    <!-- Layer 3: mid mountains -->
+    <div class="hero__layer hero__layer--3" data-speed="0.35">
+      <svg class="hero__mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 400 L0 330 Q80 280 180 300 Q300 240 420 280 Q540 220 660 270 Q780 200 900 260 Q1020 190 1140 250 Q1280 210 1440 260 L1440 400 Z" fill="#1a3355"/>
+      </svg>
+    </div>
+
+    <!-- Layer 4: hero content (title) -->
+    <div class="hero__layer hero__layer--content" data-speed="0.3">
+      <div class="hero__content">
+        <h1 class="hero__title">synax</h1>
+        <p class="hero__subtitle">Boutique engineering for high-stakes operations</p>
       </div>
     </div>
-    <div class="hero__content">
-      <h1 class="hero__title">Above the Clouds</h1>
-      <p class="hero__subtitle">Scroll down to see the parallax effect</p>
+
+    <!-- Layer 5: near mountains -->
+    <div class="hero__layer hero__layer--5" data-speed="0.5">
+      <svg class="hero__mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 400 L0 340 Q60 310 140 330 Q260 280 380 310 Q500 260 620 300 Q740 250 860 290 Q980 240 1100 280 Q1220 250 1340 280 Q1400 270 1440 290 L1440 400 Z" fill="#0a1628"/>
+      </svg>
+    </div>
+
+    <!-- Layer 6: closest foreground -->
+    <div class="hero__layer hero__layer--6" data-speed="0.7">
+      <svg class="hero__mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 400 L0 360 Q100 340 200 355 Q340 320 460 345 Q580 310 700 340 Q820 300 940 330 Q1060 310 1180 335 Q1300 320 1440 340 L1440 400 Z" fill="#060d1a"/>
+      </svg>
     </div>
   </section>
 
   <section class="content">
-    <p>Keep scrolling to watch the clouds drift at different speeds, creating a sense of depth and dimension.</p>
+    <div class="content__inner">
+      <h2>What we do</h2>
+      <p>We build resilient systems for teams that can't afford downtime. Scroll back up to see the parallax layers in action.</p>
+    </div>
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
